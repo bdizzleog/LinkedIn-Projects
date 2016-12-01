@@ -1,0 +1,49 @@
+﻿@model List<Baseball.Models.League>
+@{
+    ViewBag.Title = "Leagues";
+}
+
+<h2>Leagues</h2>
+
+<div class="row">
+    <div class="col-xs-12">
+        
+        @Html.ActionLink("Add League", "AddLeague", "Admin", null, new { @class = "btn btn-primary" })
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <table class="table table-striped" style="width: auto;">
+            <thead>
+                <tr>
+                    <th>Name </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var league in Model)
+                {
+                    <tr>
+
+                        <td>
+                            @league.Name
+                        </td>
+                        <td>
+                            @Html.ActionLink("League Info", "ViewLeague", new { Id = league.Id }, null)  |
+                            @Html.ActionLink("Edit", "EditLeague", "Admin", new { Id = league.Id }, null)
+                            @if (league.Id != 0)
+                            {
+                                <text>|</text>
+                                @Html.ActionLink("Delete", "DeleteLeague", "Admin", new { Id = league.Id }, null) <text>|</text>
+                                @Html.ActionLink("Add Team", "AddLeaguelessTeamtoLeague", "Admin", new { Id = league.Id }, null)<text>|</text>
+                                @Html.ActionLink("Remove Team", "RemoveTeamToLeagueless", "Admin", new { Id = league.Id }, null)
+                            }
+                        </td>
+
+
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

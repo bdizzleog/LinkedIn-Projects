@@ -1,0 +1,1 @@
+C:\_repos\null\Baseball\Baseball.Tests\obj\Debug\Baseball.Tests.csprojResolveAssemblyReference.cache

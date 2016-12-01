@@ -1,0 +1,42 @@
+﻿@model Baseball.Models.ViewModels.TradeVM
+@{
+    ViewBag.Title = "TradePlayers";
+}
+
+<h2>TradePlayers</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(t => t.Team1.Id)
+    @Html.HiddenFor(t => t.Team2.Id)
+    <div class="row">
+        <div class="col-sm-3">
+            <h4>@Model.Team1.Name Players</h4>
+        </div>
+        <div class="col-sm-5"></div>
+        <div class="col-sm-3">
+            <h4>@Model.Team2.Name Players</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            @Html.ListBoxFor(t => t.Team1PlayersToAdd, Model.Team1Players)
+        </div>
+        <div class="col-sm-4">
+            <button type="button" id="trade1" class="btn btn-success">Trade ></button><br />
+            <button type="button" id="trade2" class="btn btn-success">Trade <</button>
+        </div>
+        <div class="col-sm-4">
+            @Html.ListBoxFor(t => t.Team2PlayersToAdd, Model.Team2Players)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4 col-lg-offset-4">
+            <button id="save" class="btn btn-success txt-center">Save Changes</button>
+        </div>
+    </div>
+}
+@section scripts{
+    <script src="~/Scripts/App/dynamicTrade.js"></script>
+}
+

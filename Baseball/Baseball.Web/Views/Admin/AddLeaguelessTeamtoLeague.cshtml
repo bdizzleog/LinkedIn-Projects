@@ -1,0 +1,44 @@
+﻿@model Baseball.Models.ViewModels.AddNoLeagueTeamToLeagueVM
+@{
+    ViewBag.Title = "AddLeaguelessTeamtoLeague";
+}
+
+<h2>Add Team to League</h2>
+<h2>@Model.LeagueToAddTeam.Name</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(t => t.LeagueToAddTeam.Id)
+    <div class="row">
+        <div class="col-sm-6">
+            <h4>Teams in no League</h4>
+        </div>
+        <div class="col-sm-2"></div>
+        <div class="col-sm-3">
+            <h4>@Model.LeagueToAddTeam.Name Teams</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            @Html.ListBox("Leagueless", Model.LeaguelessTeams)
+        </div>
+        <div class="col-sm-4">
+            <button type="button" id="add" class="btn btn-success">Add Team</button>
+        </div>
+        <div class="col-sm-4">
+            @if (@Model.TeamsOnLeague != null)
+            {
+                @Html.ListBoxFor(t => t.TeamsToAdd, Model.TeamsOnLeague)
+            }
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4 col-lg-offset-4">
+            <button id="save" class="btn btn-success txt-center">Save Changes</button>
+        </div>
+    </div>
+}
+@section scripts{
+    <script src="~/Scripts/App/dynamicTeamAdd.js"></script>
+}
+

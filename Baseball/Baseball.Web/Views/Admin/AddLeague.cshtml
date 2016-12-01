@@ -1,0 +1,43 @@
+﻿@model Baseball.Models.League
+@{
+    ViewBag.Title = "AddLeague";
+}
+
+<h2>Add League</h2>
+
+<div class="row">
+    <div class="col-xs-12">
+       
+        @Html.ActionLink("Return to List", "Leagues", "Admin")
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        @using (Html.BeginForm("AddLeague", "Admin", null, FormMethod.Post, new { id = "leagueForm" }))
+        {
+            @Html.ValidationSummary(true)
+            <div class="col-xs-12 col-sm-7">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">League Details</h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label>Name:</label>
+                            @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Name)
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                        @Html.ActionLink("Cancel", "Leagues", "Admin", null, new { @class = "btn btn-sm btn-info" })
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+@section scripts{
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/additional-methods.min.js"></script>
+    <script src="~/Scripts/App/jquery-validation-defaults.js"></script>
+    <script src="~/Scripts/App/LeagueValidation.js"></script>
+}

@@ -1,0 +1,41 @@
+﻿@model DVDLibrary.Models.DVD
+
+@{
+    ViewBag.Title = "CheckOutDVD";
+}
+
+<div class="row">
+    <h2>Check Out Movie</h2>
+    <div class="col-xs-12 col-sm-7">
+
+        @using (Html.BeginForm("CheckOutDVD", "Admin", null, FormMethod.Post, new { id = "dvdForm" }))
+        {
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h4 class="panel-title">Check Out <i>@Model.Title</i></h4>
+                </div>
+                <div class="panel-body">
+                    @Html.HiddenFor(m => m.Id)
+                    <div class="form-group">
+
+                        <label>First Name:</label>
+                        @Html.TextBoxFor(m => m.Borrower.FirstName, new { @class = "form-control" })
+                        <label>Last Name:</label>
+                        @Html.TextBoxFor(m => m.Borrower.LastName, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label>Enter your phone number:</label>
+                        @Html.TextBoxFor(m => m.Borrower.PhoneNumber, new { @class = "form-control" })
+                    </div>
+
+
+
+                    @Html.ActionLink("Cancel", "Index", "Home", null, new { @class = "btn btn-sm btn-info" })
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+ 

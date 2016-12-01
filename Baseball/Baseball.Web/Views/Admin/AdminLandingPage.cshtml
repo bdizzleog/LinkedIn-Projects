@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "AdminLandingPage";
+}
+
+<h2>Admin Options</h2>
+@*<body>
+@Html.ActionLink("Players", "Players", "Admin", null, new { @class = "btn btn-sm btn-info" })
+@Html.ActionLink("Teams", "Teams", "Admin", null, new { @class = "btn btn-sm btn-info" })
+@Html.ActionLink("Leagues", "Leagues", "Admin", null, new { @class = "btn btn-sm btn-info" })
+</body>*@
+
+
+
+<div class="row">
+    <div class="col-xs-12">
+        <table class="table table-striped" style="width: auto;">
+            <tbody>
+            
+            <tr>
+                <td>@Html.ActionLink("Players", "Players", "Admin", null, new {@class = "btn-sm btn-info"})</td>
+                <td>List of Players</td>
+            </tr>
+            <tr>
+                <td>@Html.ActionLink("Teams", "Teams", "Admin", null, new {@class = "btn-sm btn-info"})</td>
+                <td>List of Teams</td>
+            </tr>
+            <tr>
+                <td>@Html.ActionLink("Leagues", "Leagues", "Admin", null, new {@class = "btn-sm btn-info"})</td>
+                <td>List of Leagues</td>
+            </tr>
+            <tr>
+                <td>@Html.ActionLink("Trade", "TradePlayers", "Admin", null, new {@class = "btn-sm btn-info"})</td>
+                <td>Trade Players</td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>

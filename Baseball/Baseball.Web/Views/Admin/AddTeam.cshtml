@@ -1,0 +1,55 @@
+﻿@model Baseball.Models.Team
+@{
+    ViewBag.Title = "AddTeam";
+}
+
+<h2>AddTeam</h2>
+
+<div class="row">
+    <div class="col-xs-12">
+        <h3>Add a Team</h3>
+        @Html.ActionLink("Return to List", "Teams", "Admin")
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        @using (Html.BeginForm("AddTeam", "Admin", null, FormMethod.Post, new { id = "teamForm"}))
+
+        {
+            @Html.ValidationSummary(true)
+            <div class="col-xs-12 col-sm-7">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">Team Details</h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label>Name:</label>
+                            @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Name)
+                        </div>
+                        <div class="form-group">
+                            <label>Manager:</label>
+                            @Html.TextBoxFor(m => m.Manager, new { @class = "form-control"})
+                            @Html.ValidationMessageFor(m => m.Manager)
+                        </div>
+                        @*<div class="form-group">
+                            <label>League</label>
+                            @Html.DropDownListFor(m=>m.League.Id, Model.League, )
+                            @Html.DropDownListFor(t => t.LeaguesToChoose, Model.LeaguesToChoose)
+                        </div>*@
+                        <button type="submit" class="btn btn-primary">Save</button>
+                        @Html.ActionLink("Cancel", "Teams", "Admin", null, new { @class = "btn btn-sm btn-info" })
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+@section scripts{
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/additional-methods.min.js"></script>
+    <script src="~/Scripts/App/jquery-validation-defaults.js"></script>
+    <script src="~/Scripts/App/TeamValidation.js"></script>
+}
+

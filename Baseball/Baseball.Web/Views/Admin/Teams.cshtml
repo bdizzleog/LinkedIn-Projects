@@ -1,0 +1,74 @@
+﻿@using System.Diagnostics.Eventing.Reader
+@using Baseball.Models
+@using Baseball.Models.ViewModels
+@model List<Baseball.Models.Team>
+@{
+    ViewBag.Title = "Teams";
+}
+
+<div class="row">
+    <div class="col-xs-12">
+        <br />
+        @Html.ActionLink("Back to Admin Options", "AdminLandingPage", "Admin")
+        <br />
+        <h3>Teams</h3>
+        <br />
+        @Html.ActionLink("Add Team", "AddTeam", "Admin", null, new { @class = "btn-sm btn-primary" })
+        @Html.ActionLink("Trade Players", "GetTeamsToTrade", "Admin", null, new { @class = "btn-sm btn-primary" })
+        <table class="table table-striped" style="width: auto;">
+
+            <thead>
+                <tr>
+                    <th>Team</th>
+                    <th>Manager</th>
+                    <th># of Players</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var team in Model)
+            {
+                    <tr>
+                        <td>@team.Name</td>
+                        <td>@team.Manager</td>
+                        @* This is breaking on mock data!!! *@
+                        @* TODO: fix this bug! i think it has something to do with no players on a team "fixed Ryan" *@
+                        @if (team.Players != null)
+                        {
+                            <td>@team.Players.Count</td>
+                        }
+                        else
+                        {
+                            <td>0</td>
+                        }
+
+                        <td>
+                            @Html.ActionLink("View Team", "ViewRoster", "Admin", new { id = team.Id }, new { @class = "btn-sm btn-info" })
+                        </td>
+                        @if (team.Id != 0)
+                        {
+                            <td>
+                                @Html.ActionLink("Edit Team", "EditTeam", "Admin", new { id = team.Id }, new { @class = "btn-sm btn-primary" })
+                            </td>
+                            <td>
+                                @Html.ActionLink("Delete Team", "DeleteTeam", "Admin", new { id = team.Id }, new { @class = "btn-sm btn-danger" })
+                            </td>
+                            <td>
+                                @Html.ActionLink("Add Free Agent", "AddFreeAgentToTeam", "Admin", new { id = team.Id }, new { @class = "btn-sm btn-success" })
+                            </td>
+                            <td>
+                                @Html.ActionLink("Cut Player", "CutPlayerToFreeAgency", "Admin", new { id = team.Id }, new { @class = "btn-sm btn-warning" })
+                            </td>
+                        }
+                        else
+                        {
+                            <td></td>
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

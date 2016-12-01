@@ -1,0 +1,9 @@
+C:\_repos\brandoncarroll-flooringmastery\FlooringMastery\FlooringMastery.BLL\bin\Debug\FlooringMastery.BLL.dll
+C:\_repos\brandoncarroll-flooringmastery\FlooringMastery\FlooringMastery.BLL\bin\Debug\FlooringMastery.BLL.pdb
+C:\_repos\brandoncarroll-flooringmastery\FlooringMastery\FlooringMastery.BLL\bin\Debug\FlooringMastery.Data.dll
+C:\_repos\brandoncarroll-flooringmastery\FlooringMastery\FlooringMastery.BLL\bin\Debug\FlooringMastery.Models.dll
+C:\_repos\brandoncarroll-flooringmastery\FlooringMastery\FlooringMastery.BLL\bin\Debug\FlooringMastery.Data.pdb
+C:\_repos\brandoncarroll-flooringmastery\FlooringMastery\FlooringMastery.BLL\bin\Debug\FlooringMastery.Models.pdb
+C:\_repos\brandoncarroll-flooringmastery\FlooringMastery\FlooringMastery.BLL\obj\Debug\FlooringMastery.BLL.csprojResolveAssemblyReference.cache
+C:\_repos\brandoncarroll-flooringmastery\FlooringMastery\FlooringMastery.BLL\obj\Debug\FlooringMastery.BLL.dll
+C:\_repos\brandoncarroll-flooringmastery\FlooringMastery\FlooringMastery.BLL\obj\Debug\FlooringMastery.BLL.pdb

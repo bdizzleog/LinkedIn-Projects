@@ -1,0 +1,19 @@
+﻿@model Baseball.Models.Player
+@{
+    ViewBag.Title = "DeletePlayer";
+}
+
+<h2>Delete Player</h2>
+
+
+<div class="row">
+    <div class="col-xs-12">
+        @using (Html.BeginForm())
+        {
+            @Html.HiddenFor(m=>m.Id)
+            <p>Are you sure that you wish to delete @Html.DisplayFor(m=> m.FirstName) @Html.DisplayFor(m=> m.LastName)?</p>
+            <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+            @Html.ActionLink("Cancel", "Players", "Admin", null, new { @class = "btn btn-sm btn-info" })
+        }
+    </div>
+</div>     

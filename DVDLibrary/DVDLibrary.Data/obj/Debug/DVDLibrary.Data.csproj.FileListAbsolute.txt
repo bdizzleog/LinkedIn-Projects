@@ -1,0 +1,7 @@
+C:\_repos\null\DVDLibrary\DVDLibrary.Data\bin\Debug\DVDLibrary.Data.dll
+C:\_repos\null\DVDLibrary\DVDLibrary.Data\bin\Debug\DVDLibrary.Data.pdb
+C:\_repos\null\DVDLibrary\DVDLibrary.Data\bin\Debug\DVDLibrary.Models.dll
+C:\_repos\null\DVDLibrary\DVDLibrary.Data\bin\Debug\DVDLibrary.Models.pdb
+C:\_repos\null\DVDLibrary\DVDLibrary.Data\obj\Debug\DVDLibrary.Data.csprojResolveAssemblyReference.cache
+C:\_repos\null\DVDLibrary\DVDLibrary.Data\obj\Debug\DVDLibrary.Data.dll
+C:\_repos\null\DVDLibrary\DVDLibrary.Data\obj\Debug\DVDLibrary.Data.pdb

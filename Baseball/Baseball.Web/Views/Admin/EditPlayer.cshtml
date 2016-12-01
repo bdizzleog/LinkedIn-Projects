@@ -1,0 +1,68 @@
+﻿@model Baseball.Models.Player
+@{
+    ViewBag.Title = "EditPlayer";
+}
+
+<h2>Edit Player</h2>
+
+<div class="row">
+    <div class="col-xs-12">
+
+        @using (Html.BeginForm("EditPlayer", "Admin", null, FormMethod.Post, new { id = "playerForm" }))
+
+        {
+            @Html.ValidationSummary(true, "Validation Errors")
+            <div class="col-xs-12 col-sm-7">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">Edit Player Details</h4>
+                    </div>
+                    <div class="panel-body">
+                        @Html.HiddenFor(m => m.Id)
+                        @Html.HiddenFor(m => m.TeamId)
+                        <div class="form-group">
+                            <label>First Name:</label>
+                            @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.FirstName)
+                        </div>
+                        <div class="form-group">
+                            <label>Last Name:</label>
+                            @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.LastName)
+                        </div>
+                        <div class="form-group">
+                            <label>Jersey Number:</label>
+                            @Html.EditorFor(m => m.JerseyNumber, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.JerseyNumber)
+                        </div>
+                        <div class="form-group">
+                            <label>Years Played:</label>
+                            @Html.EditorFor(m => m.YearsPlayed, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.YearsPlayed)
+                        </div>
+
+
+                        <div class="form-group">
+                            <label>Batting Average:</label>
+                            @Html.EditorFor(m => m.BattingAvg, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.BattingAvg)
+                        </div>
+                        <div class="form-group">
+                            <label>Position:</label>
+                            @Html.EnumDropDownListFor(m => m.Position, "Select Position", new { @class = "form-control" })
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Save</button>
+                        @Html.ActionLink("Cancel", "Players", "Admin", null, new { @class = "btn btn-sm btn-info" })
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+@section scripts{
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/additional-methods.min.js"></script>
+    <script src="~/Scripts/App/jquery-validation-defaults.js"></script>
+    <script src="~/Scripts/App/PlayerValidation.js"></script>
+}

@@ -1,0 +1,60 @@
+﻿@model Baseball.Models.ViewModels.CutPlayerToFreeAgencyVM
+@{
+    ViewBag.Title = "CutPlayerToFreeAgency";
+}
+
+<h2>Cut Player To Free Agency</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(t => t.FreeAgency.Id)
+    @Html.HiddenFor(t => t.TeamToRemovePlayer.Id)
+
+    <div class="row">
+        <div class="col-sm-6">     
+            <h4>@Model.TeamToRemovePlayer.Name</h4>     
+        </div>
+        <div class="col-sm-2"></div>
+        <div class="col-sm-3">
+            <h4>Free Agents</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            @Html.ListBox("PlayersToRemove", Model.PlayersOnTeam)
+        </div>
+        <div class="col-sm-4">
+            <button type="button" id="remove" class="btn btn-success">Cut To Free Agency</button>
+        </div>
+        <div class="col-sm-4">
+            @Html.ListBoxFor(t => t.PlayersToAdd, Model.FreeAgencyPlayers)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4 col-lg-offset-4">
+            <button id="saveRemove" class="btn btn-success txt-center">Save Changes</button>
+        </div>
+    </div>
+}
+<div class="row">
+    <div class="col-sm-3">
+        @if (Model.FreeAgency.Players.Any())
+        {
+            <h3>Players on @Model.FreeAgency.Name</h3>
+            foreach (var player in Model.FreeAgency.Players)
+            {
+                <p>@player.JerseyNumber @player.LastName, @player.FirstName @player.Position</p>
+            }
+        }
+        else
+        {
+            <h3>Players on @Model.FreeAgency.Name</h3>
+            <p>There are no players on the team</p>
+        }
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/App/dynamicCut.js"></script>
+}
+

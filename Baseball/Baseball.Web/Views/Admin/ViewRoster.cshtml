@@ -1,0 +1,56 @@
+﻿@using System.Web.Mvc.Html
+@model Baseball.Models.ViewModels.TeamVM
+
+@{
+    // View Team
+    ViewBag.Title = "ViewRoster";
+    
+    <div class="row">
+        <div class="col-xs-12">
+            <br />
+            @Html.ActionLink("Back to Teams", "Teams", "Admin")
+            <br />
+            <h3>@Html.DisplayTextFor(m => m.Team.Name) - Roster</h3>
+            <h4>@Html.DisplayTextFor(m => m.TeamLeague.Name)</h4>             
+            <table class="table table-striped" style="width: auto;">
+                <thead>
+                <tr>
+                    <th>Player</th>
+                    <th>Jersey #</th>
+                    <th>Position</th>
+                    <th>Batting Avg</th>
+                    <th>Years Played</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+
+
+                @if (Model.Team.Players != null && Model.Team.Players.Count > 0)
+                {
+                    foreach (var player in Model.Team.Players)
+                    {
+                        <tr class="text-center">
+                            <td>@player.LastName, @player.FirstName</td>
+                            <td>@player.JerseyNumber</td>
+                            <td>@player.Position</td>
+                            <td>@player.BattingAvg</td>
+                            <td>@player.YearsPlayed</td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td>No Players on the Team!</td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    </div>
+}
+@section scripts{
+    <script src="~/Scripts/app/ViewPlayer.js"></script>
+}

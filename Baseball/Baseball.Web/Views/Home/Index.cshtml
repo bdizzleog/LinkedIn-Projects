@@ -1,0 +1,277 @@
+﻿@model Baseball.Models.ViewModels.HomeIndexVm
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Baseball Manager</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <!-- Custom Fonts -->
+    <link href="~/Content/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Oleo+Script+Swash+Caps|Open+Sans+Condensed:300|Special+Elite" rel="stylesheet">
+
+
+
+    <!-- Theme CSS -->
+    <link href="~/Content/index/agency.css" rel="stylesheet" />
+    <link href="~/Content/index/index.css" rel="stylesheet" />
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="page-top" class="index">
+
+    <!-- Navigation -->
+    <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Null Baseball Manager</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#leagues">Leagues</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#teams">Teams</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="intro-text">
+                <div class="intro-lead-in">Baseball is Love.</div>
+                <div class="intro-heading">Baseball is Life.</div>
+                <a href="#leagues" class="page-scroll btn btn-xl">SHOW US WHAT YOU GOT</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Leagues Section -->
+    <section id="leagues">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h1 class="section-heading">Leagues</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-10 col-xs-offset-1">
+                    <div id="leagueAccordion" role="tablist" aria-multiselectable="true">
+                        @foreach (var league in Model.Leagues)
+                        {
+                            if (league.Id != 0)
+                            {
+                                <div class="card">
+                                    <div class="card-header" role="tab" id="@($"League{league.Id}")">
+                                        <h2 class="mb-0">
+                                            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#@($"League{league.Id}Collapse")" aria-expanded="false" aria-controls="collapseTwo">
+                                                @league.Name
+                                            </a>
+                                        </h2>
+                                    </div>
+                                    <div id="@($"League{league.Id}Collapse")" class="collapse" role="tabpanel" aria-labelledby="@($"League{league.Id}")">
+                                        <div class="card-block">
+                                            <table class="table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Team</th>
+                                                        <th>Manager</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach (var team in Model.Teams)
+                                                    {
+                                                        if (team.LeagueId == league.Id)
+                                                        {
+                                                            <tr class="clickable-row" href="#@($"Team{team.Id}")">
+                                                                <td>@team.Name</td>
+                                                                <td>@team.Manager</td>
+                                                            </tr>
+                                                        }
+                                                    }
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Teams Section-->
+
+    <section id="teams">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h1 class="section-heading">Teams</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-10 col-xs-offset-1">
+                    <div id="teamAccordion" role="tablist">
+                        @foreach (var team in Model.Teams)
+                        {     
+                            <div class="card">
+                                <div class="card-header" id="@($"Team{team.Id}")">
+                                    <h2 class="mb-0">
+                                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#@($"Team{team.Id}Collapse")">
+                                            @team.Name
+                                        </a>
+                                    </h2>
+                                </div>
+                                <div id="@($"Team{team.Id}Collapse")" class="collapse panel-collapse" role="tabpanel">
+                                    <div class="card-block">
+                                        @if (team.Name != "Free Agency")
+                                        {
+                                            <h4>Manager: @team.Manager</h4>
+                                        }
+
+                                        @if (@team.Players == null || team.Players.Count == 0)
+                                        {
+                                            <h4>Number of players: 0</h4>
+                                        }
+                                        else
+                                        {
+
+                                            <h4>Number of players: @team.Players.Count</h4>
+                                        }
+
+                                        @if (@team.Players != null || @team.Players != null)
+
+                                        {
+                                            <table id="@($"team{team.Id}PlayerTable")" class="table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Player Name</th>
+                                                        <th class="table-align-center">Jersey Number</th>
+                                                        <th class="table-align-center">Position</th>
+                                                        <th class="table-align-center">Batting Avg</th>
+                                                        <th class="table-align-center">Years Played</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach (var player in team.Players)
+                                                    {
+                                                        <tr class="page-scroll" href="#">
+                                                            <td>@player.FirstName @player.LastName</td>
+                                                            <td class="table-align-center">@player.JerseyNumber.ToString()</td>
+                                                            <td class="table-align-center">@player.Position.ToString()</td>
+                                                            <td class="table-align-center">@($"{player.BattingAvg:.000}")</td>
+                                                            <td class="table-align-center">@player.YearsPlayed.ToString()</td>
+                                                        </tr>
+                                                    }
+                                                </tbody>
+                                            </table>
+                                        }
+                                        else
+                                        {
+                                            <td class="table-align-center">There Are No Players to Display</td>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <span class="copyright">Copyright &copy; null 2016</span>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline social-buttons">
+                        <li>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                        </li>
+                        <li>
+                            <a href="../Admin/AdminLandingPage">
+
+                                <span class="change-icon">
+                                    <i class="fa fa-lock"></i>
+                                    <i class="fa fa-unlock-alt"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline quicklinks">
+                        <li>
+                            <a href="#">Privacy Policy</a>
+                        </li>
+                        <li>
+                            <a href="#">Terms of Use</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="~/Scripts/jquery-3.1.1.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="~/Scripts/agency.min.js"></script>
+    <script src="~/Scripts/App/HomeIndex.js"></script>
+</body>
+
+</html>

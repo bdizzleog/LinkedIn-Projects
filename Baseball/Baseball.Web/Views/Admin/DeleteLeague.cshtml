@@ -1,0 +1,31 @@
+﻿@model Baseball.Models.League
+@{
+    ViewBag.Title = "DeleteLeague";
+}
+
+<h2>DeleteLeague</h2>
+
+@*<div class="row">
+    <div class="col-xs-12">
+        
+        @Html.ActionLink("Return to List", "Leagues", "Admin")
+    </div>
+</div>*@
+<div class="row">
+    <div class="col-xs-12">
+        @using (Html.BeginForm())
+        {
+            @Html.HiddenFor(m => m.Id)
+            if (Model.Id == 0)
+            {
+                <h4>YOU CANNOT DELETE THIS LEAGUE!!!!</h4>
+            }
+            else
+            {
+                <p>Are you sure that you wish to delete @Html.DisplayFor(m => m.Name)?</p>
+                <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+            }         
+            @Html.ActionLink("Cancel", "Leagues", "Admin", null, new { @class = "btn btn-sm btn-info" })
+        }
+    </div>
+</div>    

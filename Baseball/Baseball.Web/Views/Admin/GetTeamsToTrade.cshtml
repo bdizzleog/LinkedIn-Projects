@@ -1,0 +1,35 @@
+﻿@model Baseball.Models.ViewModels.GetTeamsForTradeVM
+@{
+    ViewBag.Title = "GetTeamsToTrade";
+}
+
+<h2>Get Teams To Trade</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary()
+    <div class="row">
+        <div class="col-sm-6">
+            <label>Team 1:</label>
+            @Html.DropDownListFor(t => t.Team1ID, Model.Team1Choice, "-Choose Team 1-", new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="rowe"></div>
+    <div class="row"></div>
+    <div class="row">
+        <div class="col-sm-6">
+            <label>Team 2:</label>
+            @Html.DropDownListFor(t => t.Team2ID, Model.Team2Choice, "-Choose Team 2", new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            @*@Html.ActionLink("Go to Trade", "TradePlayers", "Admin", null, new { @class = "btn-sm btn-primary" })*@
+            <button class="btn btn-primary">Trade</button>
+        </div>
+    </div>
+}
+@section scripts{
+    <script src="~/Scripts/App/dynamicTrade.js"></script>
+}
+

@@ -1,0 +1,5 @@
+C:\_repos\null\DVDLibrary\DVDLibrary.Models\bin\Debug\DVDLibrary.Models.dll
+C:\_repos\null\DVDLibrary\DVDLibrary.Models\bin\Debug\DVDLibrary.Models.pdb
+C:\_repos\null\DVDLibrary\DVDLibrary.Models\obj\Debug\DVDLibrary.Models.csprojResolveAssemblyReference.cache
+C:\_repos\null\DVDLibrary\DVDLibrary.Models\obj\Debug\DVDLibrary.Models.dll
+C:\_repos\null\DVDLibrary\DVDLibrary.Models\obj\Debug\DVDLibrary.Models.pdb

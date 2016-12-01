@@ -1,0 +1,3 @@
+OrderNumber,CustomerName,StateName,StateAb,TaxRate,ProductType,CostPerSqFt,LaborCostPerSqFt,Area,OrderDate
+123456,Brandon,Ohio,OH,6.25,Carpet,1.99,1.25,120,10/11/2016 12:00:00 AM
+123456,bdofg,Ohio,OH,6.25,Carpet,1.99,1.25,120,10/11/2016 12:00:00 AM

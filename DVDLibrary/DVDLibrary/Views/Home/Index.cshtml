@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row">
+    <h2>All Movies</h2>
+</div>
+
+
+<section id="searchBar">
+    <div class="row">
+        @using (Html.BeginForm("SearchDVD", "Admin", FormMethod.Get))
+        {
+            <div class="input-group">
+                @Html.TextBox("searchInput", "", new { style = "width: 600px", placeholder = "Search DVDs", @class = "form-control", required = true })
+                <button type="submit" class="btn btn-info">
+                    <span class="glyphicon glyphicon-search"></span>
+                </button>
+            </div>
+        }
+    </div>
+</section>
+
+<section id="tableView" class="hidden">
+    <div class="row">
+        <table id="movies" class="table table-hover">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Movie</th>
+                    <th>Director</th>
+                    <th>Year</th>
+                    <th>MPAA Rating</th>
+                    <th>User Rating</th>
+                    <th>IMDB Rating</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</section>
+
+
+<section>
+    <div class="row" id="posterView">
+    </div>
+</section>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalLabel">More Info</h4>
+            </div>
+            <div class="modal-body"></div>
+            <div class="modal-footer"></div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts
+{
+    <script src="~/Scripts/App/displayallapi.js"></script>
+    <script src="~/Scripts/App/displayMovie.js"></script>   
+}

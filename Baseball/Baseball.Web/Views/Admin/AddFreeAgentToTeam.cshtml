@@ -1,0 +1,64 @@
+﻿@model Baseball.Models.ViewModels.AddFreeAgentToTeamVM
+@{
+    ViewBag.Title = "AddFreeAgentToTeam";
+}
+
+<h3>Add Free Agent To Team</h3>
+<h3>@Model.TeamToAddPlayer.Name</h3>
+
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(t => t.TeamToAddPlayer.Id)
+
+
+    <div class="row">
+        <div class="col-sm-6">
+            <h4>Free Agency</h4>      
+        </div>
+        <div class="col-sm-2"></div>
+        <div class="col-sm-3">
+            <h4>@Model.TeamToAddPlayer.Name Players</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            @Html.ListBox("FreeAgents", Model.FreeAgencyPlayers)
+        </div>
+        <div class="col-sm-4">
+            <button type="button" id="add" class="btn btn-success">Add Free Agent</button>         
+        </div>
+        <div class="col-sm-4">
+            @if (@Model.PlayersOnTeam != null)
+            {
+                @Html.ListBoxFor(t => t.PlayersToAdd, Model.PlayersOnTeam)
+            }
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4 col-lg-offset-4">
+            <button id="save" class="btn btn-success txt-center">Save Changes</button>
+        </div>
+    </div>
+}
+<div class="row">
+    <div class="col-sm-3">
+        @if (Model.TeamToAddPlayer.Players.Any())
+        {
+            <h3>Players on @Model.TeamToAddPlayer.Name</h3>
+            foreach (var player in Model.TeamToAddPlayer.Players)
+            {
+                <p>@player.JerseyNumber @player.LastName, @player.FirstName @player.Position</p>
+            }
+        }
+        else
+        {
+            <h3>Players on @Model.TeamToAddPlayer.Name</h3>
+            <p>There are no players on the team</p>
+        }
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/App/dynamicAdd.js"></script>
+}

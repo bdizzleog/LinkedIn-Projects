@@ -1,0 +1,70 @@
+﻿body {
+}
+.navbar-custom .navbar-brand{
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+header .intro-text .intro-lead-in {
+    font-family: 'Oleo Script Swash Caps', cursive; 
+    font-size: 50px;   
+}
+header .intro-text .intro-heading {
+    font-family: 'Special Elite', cursive;
+    font-size: 50px;
+}
+/*footer span.copyright {
+    font-family: 'Open Sans Condensed', sans-serif;
+}*/
+footer span.copyright, footer ul.quicklinks {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 1em;
+}
+
+table {
+    font-size: 1.5em;
+
+}
+th{
+    
+    padding: 4px 10px 4px 5px;
+    background-color: #FFDE66;
+    color: black;
+    border-bottom: solid 2px lightgray;
+    padding-left: 10px;
+}
+td {
+   
+    padding: 4px 10px 4px 4px;
+    margin-left: 100px;
+}
+.table-align-center{
+    text-align: center;
+}
+.card-block h4 {
+    padding-left: 10px;
+}
+.section-heading {
+    padding-bottom: 5px;
+    border-bottom: solid 3px #FFDE66;
+}
+a {
+    color: #333;
+}
+.btn-xl {
+    background-color: rgb(249, 196, 5);
+    background-color: rgba(249, 196, 5, .5);
+}
+
+.table-striped > tbody > tr:nth-child(odd) > td,
+.table-striped > tbody > tr:nth-child(odd) > th {
+    background-color: #f2f2f2;
+}
+
+/*to change lock icon upon hover*/
+.change-icon > .fa + .fa,
+.change-icon:hover > .fa {
+  display: none;
+}
+.change-icon:hover > .fa + .fa {
+  display: inherit;
+}

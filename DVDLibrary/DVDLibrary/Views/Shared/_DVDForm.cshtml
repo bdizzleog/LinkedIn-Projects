@@ -1,0 +1,136 @@
+﻿@model DVDLibrary.Models.DVD
+
+<div id="DVDForm">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h4>DVD</h4>
+        </div>
+        <div class="panel-body">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Title)
+                @Html.TextBoxFor(m => m.Title, new { id = "Title", @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Title)
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Director)
+                @Html.TextBoxFor(m => m.Director, new { id = "Director", @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Director)
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Year)
+                @Html.TextBoxFor(m => m.Year, new { id = "Year", @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Year)
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Rating)
+                @Html.EnumDropDownListFor(m => m.Rating, new { id = "Rated", @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Rating)
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Released)
+                @Html.EditorFor(m => m.Released, new { id = "Released", @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Released)
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="form-group">
+                @Html.LabelFor(m => m.RunTime)
+                @Html.TextBoxFor(m => m.RunTime, new { id = "Runtime", @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.RunTime)
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Genre)
+                @Html.TextBoxFor(m => m.Genre, new { id = "Genre", @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Genre)
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Director)
+                @Html.TextBoxFor(m => m.Director, new { id = "Director", @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Director)
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Writer)
+                @Html.TextBoxFor(m => m.Writer, new { id = "Writer", @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Writer)
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Actors)
+                @Html.TextBoxFor(m => m.Actors, new { id = "Actors", @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Actors)
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="form-group">
+                @Html.LabelFor(m => m.ImdbId)
+                @Html.TextBoxFor(m => m.ImdbId, new { id = "imdbID", @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.ImdbId)
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Plot)
+                @Html.TextBoxFor(m => m.Plot, new { id = "Plot", @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Plot)
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Poster)
+                @Html.TextBoxFor(m => m.Poster, new { id = "Poster", @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Poster)
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Metascore)
+                @Html.TextBoxFor(m => m.Metascore, new { id = "Metascore", @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Metascore)
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="form-group">
+                @Html.LabelFor(m => m.ImdbRating)
+                @Html.TextBoxFor(m => m.ImdbRating, new { id = "imdbRating", @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.ImdbRating)
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Studio)
+                @Html.TextBoxFor(m => m.Studio, new { id = "Studio", @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Studio)
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="form-group">
+                @Html.LabelFor(m => m.UserRating)
+                @Html.EditorFor(m => m.UserRating, new { id = "UserRating", @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.UserRating)
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="form-group">
+                @Html.LabelFor(m => m.UserNotes)
+                @Html.TextAreaFor(m => m.UserNotes, new { id = "UserNotes", @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.UserNotes)
+            </div>
+        </div>
+    </div>
+</div>
+
